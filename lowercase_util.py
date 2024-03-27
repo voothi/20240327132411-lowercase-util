@@ -1,5 +1,6 @@
 import argparse
 import pyperclip
+import re
 
 def get_clipboard_text():
     return pyperclip.paste()
@@ -8,7 +9,10 @@ def set_clipboard_text(text):
     pyperclip.copy(text)
 
 def to_lower_case(input_string):
-    return input_string.lower()
+    # Удаляем теги HTML и другие скрытые символы
+    cleaned_string = re.sub('<[^<]+?>', '', input_string)
+    cleaned_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', cleaned_string)
+    return cleaned_string.lower()
 
 def main():
     parser = argparse.ArgumentParser(description="Convert input string or clipboard content to lowercase.")
