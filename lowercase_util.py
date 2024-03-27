@@ -12,7 +12,7 @@ def to_lower_case(input_string):
     # Удаляем теги HTML и другие скрытые символы
     cleaned_string = re.sub('<[^<]+?>', '', input_string)
     cleaned_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', cleaned_string)
-    # Заменяем символы новой строки на пробелы
+    # Заменяем символы новой строки на пробелы с пробелами после каждого
     cleaned_string = cleaned_string.replace('\n', ' ')
     return cleaned_string.lower()
 
