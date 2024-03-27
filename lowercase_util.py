@@ -1,6 +1,12 @@
 import argparse
 import pyperclip
 
+def get_clipboard_text():
+    return pyperclip.paste()
+
+def set_clipboard_text(text):
+    pyperclip.copy(text)
+
 def to_lower_case(input_string):
     return input_string.lower()
 
@@ -10,10 +16,12 @@ def main():
     args = parser.parse_args()
 
     if args.input_string is None:
-        clipboard_content = pyperclip.paste()
+        clipboard_content = get_clipboard_text()
         output_string = to_lower_case(clipboard_content)
+        set_clipboard_text(output_string)
     else:
         output_string = to_lower_case(args.input_string)
+        set_clipboard_text(output_string)
 
     print(output_string)
 

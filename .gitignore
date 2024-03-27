@@ -87,3 +87,6 @@ build
 
 
 .dendron.cache.*
+
+*.spec
+dist/
