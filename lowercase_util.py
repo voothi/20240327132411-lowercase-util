@@ -9,10 +9,13 @@ def set_clipboard_text(text):
     pyperclip.copy(text)
 
 def to_lower_case(input_string):
-    # Удаляем теги HTML и другие скрытые символы
-    cleaned_string = re.sub('<[^<]+?>', '', input_string)
-    cleaned_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', cleaned_string)
-    return cleaned_string.lower()
+    return input_string.lower()
+
+def clean_text(input_string):
+    # Удаляем HTML теги и другие скрытые символы
+    clean_string = re.sub('<[^<]+?>', '', input_string)
+    clean_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', clean_string)
+    return clean_string
 
 def main():
     parser = argparse.ArgumentParser(description="Convert input string or clipboard content to lowercase.")
@@ -21,10 +24,12 @@ def main():
 
     if args.input_string is None:
         clipboard_content = get_clipboard_text()
-        output_string = to_lower_case(clipboard_content)
+        clean_content = clean_text(clipboard_content)
+        output_string = to_lower_case(clean_content)
         set_clipboard_text(output_string)
     else:
-        output_string = to_lower_case(args.input_string)
+        clean_input = clean_text(args.input_string)
+        output_string = to_lower_case(clean_input)
         set_clipboard_text(output_string)
 
     print(output_string)
