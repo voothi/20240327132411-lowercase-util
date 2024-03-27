@@ -10,12 +10,10 @@ def set_clipboard_text(text):
 
 def to_lower_case(input_string):
     # Удаляем теги HTML и другие скрытые символы
-    cleaned_string = re.sub('<[^<]+?>', '', input_string)
+    cleaned_string = re.sub(r'<[^<]+?>', '', input_string)
     cleaned_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', cleaned_string)
-    
-    # Заменяем символы новой строки на пробелы с пробелами после каждого, кроме последнего
-    cleaned_string = cleaned_string.replace('\n', ' ')
-    cleaned_string = cleaned_string.replace(' \n ', '\n')  # возвращаем одиночные пробелы перед и после новой строки
+    # Заменяем символы новой строки на пробелы, кроме случаев, когда символ новой строки следует за пробелом
+    cleaned_string = re.sub(r'\n(?!\s)', ' ', cleaned_string)
     return cleaned_string.lower()
 
 def main():
