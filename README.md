@@ -11,6 +11,7 @@ A lightweight utility for converting text to lowercase, cleaning up HTML tags, a
 - [Installation](#installation)
 - [Usage](#usage)
 - [Building from Source](#building-from-source)
+- [AutoHotkey Integration](#autohotkey-integration)
 - [License](#license)
 
 ---
@@ -72,6 +73,20 @@ For a standalone executable, you can use PyInstaller:
    pyinstaller --onefile --noconsole lowercase_util.py
    ```
 The executable will be located in the `dist/` directory.
+
+[Return to Top](#lowercase-utility)
+
+## AutoHotkey Integration
+
+For a more seamless workflow, you can use the **[lowercase.ahk](https://github.com/voothi/20240411110510-autohotkey/blob/main/lowercase.ahk)** script. 
+
+This script maps the process to `Ctrl + Alt + I` (^!I), performing the following steps automatically:
+1. **Copies** the currently selected text.
+2. **Processes** it through the Python script.
+3. **Pastes** the converted lowercase text back into your active window.
+
+> [!IMPORTANT]
+> You must update the paths in the `RunWait` command within the `.ahk` script to match your local installation of Python and the location of `lowercase_util.py`.
 
 [Return to Top](#lowercase-utility)
 
