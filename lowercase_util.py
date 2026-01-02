@@ -9,10 +9,10 @@ def set_clipboard_text(text):
     pyperclip.copy(text)
 
 def to_lower_case(input_string):
-    # Удаляем теги HTML и другие скрытые символы
+    # Remove HTML tags and other hidden characters
     cleaned_string = re.sub(r'<[^<]+?>', '', input_string)
     cleaned_string = re.sub(r'[\x00-\x1F\x7F-\x9F]', '', cleaned_string)
-    # Заменяем символы новой строки на пробелы, кроме случаев, когда символ новой строки следует за пробелом
+    # Replace newlines with spaces, except when the newline is followed by whitespace
     cleaned_string = re.sub(r'\n(?!\s)', ' ', cleaned_string)
     return cleaned_string.lower()
 
