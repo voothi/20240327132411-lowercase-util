@@ -12,6 +12,7 @@ A lightweight utility for converting text to lowercase, cleaning up HTML tags, a
 - [Usage](#usage)
 - [Building from Source](#building-from-source)
 - [AutoHotkey Integration](#autohotkey-integration)
+- [Kardenwort Ecosystem](#kardenwort-ecosystem)
 - [License](#license)
 
 ---
@@ -89,6 +90,12 @@ This script maps the process to `Ctrl + Alt + I` (^!I), performing the following
 > You must update the paths in the `RunWait` command within the `.ahk` script to match your local installation of Python and the location of `lowercase_util.py`.
 
 [Return to Top](#lowercase-utility)
+
+## Kardenwort Ecosystem
+
+This project is part of the **[Kardenwort](https://github.com/kardenwort)** environment, designed to create a focused and efficient learning ecosystem.
+
+[Return to Top](#table-of-contents)
 
 ## License
 MIT License. See LICENSE file for details.
